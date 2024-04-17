@@ -46,12 +46,10 @@
 		8D1BE9C62BD04C6900090246 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9C12BD04C6900090246 /* UserProfileView.swift */; };
 		8D1BE9C82BD04D3200090246 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9C72BD04D3200090246 /* Dashboard.swift */; };
 		8D1BE9CA2BD04D4400090246 /* LogsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9C92BD04D4400090246 /* LogsTabView.swift */; };
-		8D1BE9CD2BD054FA00090246 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9CC2BD054FA00090246 /* Extensions.swift */; };
-		8D1BE9CF2BD0551C00090246 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9CE2BD0551C00090246 /* Utils.swift */; };
-		8D1BE9D42BD061CB00090246 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9D32BD061CB00090246 /* Sort.swift */; };
-		8D1BE9DA2BD062DC00090246 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9D92BD062DC00090246 /* Category.swift */; };
-		8D1BE9E02BD073B400090246 /* LogsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9DF2BD073B400090246 /* LogsFormView.swift */; };
-		8D1BE9E22BD0740F00090246 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9E12BD0740F00090246 /* Expense.swift */; };
+		EDEF8AC62BD0818E004819C1 /* ExpenseLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8AC52BD0818E004819C1 /* ExpenseLog.swift */; };
+		EDEF8AC92BD082B7004819C1 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8AC82BD082B7004819C1 /* AddExpenseView.swift */; };
+		EDEF8ACB2BD082C7004819C1 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8ACA2BD082C7004819C1 /* NewsView.swift */; };
+		EDEF8ACD2BD082D5004819C1 /* LocateUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8ACC2BD082D5004819C1 /* LocateUsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,12 +66,10 @@
 		8D1BE9C12BD04C6900090246 /* UserProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		8D1BE9C72BD04D3200090246 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		8D1BE9C92BD04D4400090246 /* LogsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsTabView.swift; sourceTree = "<group>"; };
-		8D1BE9CC2BD054FA00090246 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		8D1BE9CE2BD0551C00090246 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		8D1BE9D32BD061CB00090246 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
-		8D1BE9D92BD062DC00090246 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		8D1BE9DF2BD073B400090246 /* LogsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsFormView.swift; sourceTree = "<group>"; };
-		8D1BE9E12BD0740F00090246 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		EDEF8AC52BD0818E004819C1 /* ExpenseLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseLog.swift; sourceTree = "<group>"; };
+		EDEF8AC82BD082B7004819C1 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
+		EDEF8ACA2BD082C7004819C1 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		EDEF8ACC2BD082D5004819C1 /* LocateUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +129,6 @@
 		8D1BE9742BD04ABE00090246 /* TrackIT */ = {
 			isa = PBXGroup;
 			children = (
-				8D1BE9D22BD0619E00090246 /* Model */,
-				8D1BE9D02BD0616400090246 /* Views */,
-				8D1BE9CB2BD054E600090246 /* Helpers */,
 				8D1BE9C22BD04C6900090246 /* Content */,
 				8D1BE9752BD04ABE00090246 /* TrackITApp.swift */,
 				8D1BE9772BD04ABE00090246 /* ContentView.swift */,
@@ -158,49 +151,34 @@
 		8D1BE9C22BD04C6900090246 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				8D1BE9BE2BD04C6900090246 /* LoginView.swift */,
-				8D1BE9BF2BD04C6900090246 /* MainView.swift */,
-				8D1BE9C02BD04C6900090246 /* RegisterView.swift */,
-				8D1BE9C12BD04C6900090246 /* UserProfileView.swift */,
+				EDEF8AC72BD0827F004819C1 /* Views */,
+				EDEF8AC42BD08169004819C1 /* Model */,
 				8D1BE9C72BD04D3200090246 /* Dashboard.swift */,
-				8D1BE9C92BD04D4400090246 /* LogsTabView.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
 		};
-		8D1BE9CB2BD054E600090246 /* Helpers */ = {
+		EDEF8AC42BD08169004819C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8D1BE9CC2BD054FA00090246 /* Extensions.swift */,
-				8D1BE9CE2BD0551C00090246 /* Utils.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		8D1BE9D02BD0616400090246 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8D1BE9D12BD0616C00090246 /* Logs */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8D1BE9D12BD0616C00090246 /* Logs */ = {
-			isa = PBXGroup;
-			children = (
-				8D1BE9DF2BD073B400090246 /* LogsFormView.swift */,
-			);
-			path = Logs;
-			sourceTree = "<group>";
-		};
-		8D1BE9D22BD0619E00090246 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8D1BE9D32BD061CB00090246 /* Sort.swift */,
-				8D1BE9D92BD062DC00090246 /* Category.swift */,
-				8D1BE9E12BD0740F00090246 /* Expense.swift */,
+				EDEF8AC52BD0818E004819C1 /* ExpenseLog.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EDEF8AC72BD0827F004819C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8D1BE9BF2BD04C6900090246 /* MainView.swift */,
+				8D1BE9C12BD04C6900090246 /* UserProfileView.swift */,
+				8D1BE9C92BD04D4400090246 /* LogsTabView.swift */,
+				8D1BE9C02BD04C6900090246 /* RegisterView.swift */,
+				8D1BE9BE2BD04C6900090246 /* LoginView.swift */,
+				EDEF8AC82BD082B7004819C1 /* AddExpenseView.swift */,
+				EDEF8ACA2BD082C7004819C1 /* NewsView.swift */,
+				EDEF8ACC2BD082D5004819C1 /* LocateUsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,21 +284,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEF8AC92BD082B7004819C1 /* AddExpenseView.swift in Sources */,
 				8D1BE9C62BD04C6900090246 /* UserProfileView.swift in Sources */,
-				8D1BE9E02BD073B400090246 /* LogsFormView.swift in Sources */,
 				8D1BE9782BD04ABE00090246 /* ContentView.swift in Sources */,
+				EDEF8ACD2BD082D5004819C1 /* LocateUsView.swift in Sources */,
 				8D1BE9C82BD04D3200090246 /* Dashboard.swift in Sources */,
 				8D1BE97A2BD04ABE00090246 /* Item.swift in Sources */,
 				8D1BE9C32BD04C6900090246 /* LoginView.swift in Sources */,
-				8D1BE9D42BD061CB00090246 /* Sort.swift in Sources */,
-				8D1BE9CD2BD054FA00090246 /* Extensions.swift in Sources */,
+				EDEF8AC62BD0818E004819C1 /* ExpenseLog.swift in Sources */,
 				8D1BE9C52BD04C6900090246 /* RegisterView.swift in Sources */,
-				8D1BE9CF2BD0551C00090246 /* Utils.swift in Sources */,
 				8D1BE9CA2BD04D4400090246 /* LogsTabView.swift in Sources */,
-				8D1BE9E22BD0740F00090246 /* Expense.swift in Sources */,
+				EDEF8ACB2BD082C7004819C1 /* NewsView.swift in Sources */,
 				8D1BE9C42BD04C6900090246 /* MainView.swift in Sources */,
 				8D1BE9762BD04ABE00090246 /* TrackITApp.swift in Sources */,
-				8D1BE9DA2BD062DC00090246 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

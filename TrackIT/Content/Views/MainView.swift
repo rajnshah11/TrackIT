@@ -20,11 +20,28 @@ struct MainView: View {
                         LogsTabView()
                             .tabItem {
                                 VStack {
-                                    Text("Logs")
+                                    Text("Expense Logs")
                                     Image(systemName: "tray")
                                 }
                         }
                         .tag(1)
+                        AddExpenseView()
+                                    .tabItem {
+                                        VStack {
+                                            Text("Add Expense")
+                                            Image(systemName: "plus")
+                                        }
+                                    }
+                                    .tag(2)
+                        NewsView()
+                                    .tabItem {
+                                        VStack {
+                                            Text("Financial News")
+                                            Image(systemName: "newspaper")
+                                        }
+                                    }
+                                    .tag(3)
+                        
                     }.edgesIgnoringSafeArea(.top)
 
             
