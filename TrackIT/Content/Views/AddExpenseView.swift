@@ -11,12 +11,22 @@ import CoreData
 
 struct AddExpenseView: View {
     
-    var body: some View {
-        Text("Add Expense View")
-            .font(.subheadline)
-            .foregroundColor(.gray)
+    @EnvironmentObject var viewModel: ExpenseLogViewModel
+       
+       var body: some View {
+           NavigationView {
+               List(viewModel.logs) { log in
+                   Text(log.name)
+               }
+               .navigationBarTitle("Expense Logs")
+               .navigationBarItems(trailing: NavigationLink(destination: LogsFormView()) {
+                   Image(systemName: "plus")
+               })
+           }
+           .onAppear {
+               self.viewModel.fetchData()
+           }
+       }
 
-
-    }
 
 }

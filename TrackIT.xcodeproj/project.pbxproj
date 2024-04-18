@@ -45,11 +45,12 @@
 		8D1BE9C52BD04C6900090246 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9C02BD04C6900090246 /* RegisterView.swift */; };
 		8D1BE9C62BD04C6900090246 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9C12BD04C6900090246 /* UserProfileView.swift */; };
 		8D1BE9C82BD04D3200090246 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9C72BD04D3200090246 /* Dashboard.swift */; };
-		8D1BE9CA2BD04D4400090246 /* LogsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9C92BD04D4400090246 /* LogsTabView.swift */; };
 		EDEF8AC62BD0818E004819C1 /* ExpenseLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8AC52BD0818E004819C1 /* ExpenseLog.swift */; };
 		EDEF8AC92BD082B7004819C1 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8AC82BD082B7004819C1 /* AddExpenseView.swift */; };
 		EDEF8ACB2BD082C7004819C1 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8ACA2BD082C7004819C1 /* NewsView.swift */; };
 		EDEF8ACD2BD082D5004819C1 /* LocateUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8ACC2BD082D5004819C1 /* LocateUsView.swift */; };
+		EDEF8AD22BD089AB004819C1 /* ExpenseLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8AD12BD089AB004819C1 /* ExpenseLogViewModel.swift */; };
+		EDEF8AD42BD089F1004819C1 /* LogsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8AD32BD089F1004819C1 /* LogsFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,11 +66,12 @@
 		8D1BE9C02BD04C6900090246 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		8D1BE9C12BD04C6900090246 /* UserProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		8D1BE9C72BD04D3200090246 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
-		8D1BE9C92BD04D4400090246 /* LogsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsTabView.swift; sourceTree = "<group>"; };
 		EDEF8AC52BD0818E004819C1 /* ExpenseLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseLog.swift; sourceTree = "<group>"; };
 		EDEF8AC82BD082B7004819C1 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		EDEF8ACA2BD082C7004819C1 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		EDEF8ACC2BD082D5004819C1 /* LocateUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUsView.swift; sourceTree = "<group>"; };
+		EDEF8AD12BD089AB004819C1 /* ExpenseLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseLogViewModel.swift; sourceTree = "<group>"; };
+		EDEF8AD32BD089F1004819C1 /* LogsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		8D1BE9C22BD04C6900090246 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				EDEF8ACE2BD08938004819C1 /* ViewModel */,
 				EDEF8AC72BD0827F004819C1 /* Views */,
 				EDEF8AC42BD08169004819C1 /* Model */,
 				8D1BE9C72BD04D3200090246 /* Dashboard.swift */,
@@ -171,14 +174,22 @@
 			children = (
 				8D1BE9BF2BD04C6900090246 /* MainView.swift */,
 				8D1BE9C12BD04C6900090246 /* UserProfileView.swift */,
-				8D1BE9C92BD04D4400090246 /* LogsTabView.swift */,
 				8D1BE9C02BD04C6900090246 /* RegisterView.swift */,
 				8D1BE9BE2BD04C6900090246 /* LoginView.swift */,
 				EDEF8AC82BD082B7004819C1 /* AddExpenseView.swift */,
 				EDEF8ACA2BD082C7004819C1 /* NewsView.swift */,
 				EDEF8ACC2BD082D5004819C1 /* LocateUsView.swift */,
+				EDEF8AD32BD089F1004819C1 /* LogsFormView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EDEF8ACE2BD08938004819C1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EDEF8AD12BD089AB004819C1 /* ExpenseLogViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,9 +304,10 @@
 				8D1BE9C32BD04C6900090246 /* LoginView.swift in Sources */,
 				EDEF8AC62BD0818E004819C1 /* ExpenseLog.swift in Sources */,
 				8D1BE9C52BD04C6900090246 /* RegisterView.swift in Sources */,
-				8D1BE9CA2BD04D4400090246 /* LogsTabView.swift in Sources */,
 				EDEF8ACB2BD082C7004819C1 /* NewsView.swift in Sources */,
+				EDEF8AD42BD089F1004819C1 /* LogsFormView.swift in Sources */,
 				8D1BE9C42BD04C6900090246 /* MainView.swift in Sources */,
+				EDEF8AD22BD089AB004819C1 /* ExpenseLogViewModel.swift in Sources */,
 				8D1BE9762BD04ABE00090246 /* TrackITApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
