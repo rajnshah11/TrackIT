@@ -1,56 +1,130 @@
 import SwiftUI
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseAuth
 
 class ExpenseLogViewModel: ObservableObject {
     private var db = Firestore.firestore()
     @Published var logs = [ExpenseLog]()
-    
+    let firebaseManager = FirebaseManager.shared
+
+
     func fetchData() {
-        db.collection("expenseLogs").order(by: "date", descending: true).addSnapshotListener { querySnapshot, error in
-            guard let documents = querySnapshot?.documents else {
-                print("No documents")
-                return
-            }
-            self.logs = documents.compactMap { document in
-                try? document.data(as: ExpenseLog.self)
-            }
+        guard let currentUser = Auth.auth().currentUser else {
+            return
         }
+        let userID = currentUser.uid
+        db.collection("expenseLogs").document(userID).collection("expenses")
+            .order(by: "date", descending: true)
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+                self.logs = documents.compactMap { document in
+                    try? document.data(as: ExpenseLog.self)
+                }
+            }
     }
     
-    func addLog(log: ExpenseLog) {
+    func addLog(log: ExpenseLog, completion: @escaping (Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            completion(NSError(domain: "ExpenseLogViewModel", code: 401, userInfo: [NSLocalizedDescriptionKey: "User not authenticated"]))
+            return
+        }
+        
+        let userID = currentUser.uid
+        let userDocumentRef = db.collection("expenseLogs").document(userID)
+        let documeref = userDocumentRef.collection("expenses")
+        
         do {
-            _ = try db.collection("expenseLogs").addDocument(from: log)
+            try documeref.addDocument(from: log) { error in
+                if let error = error {
+                    completion(error)
+                } else {
+                    completion(nil)
+                }
+            }
         } catch {
-            print(error)
+            completion(error)
         }
     }
+    func deleteLog(_ log: ExpenseLog) {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        
+        let userID = currentUser.uid
+        let userDocumentRef = db.collection("expenseLogs").document(userID)
+        let documeref = userDocumentRef.collection("expenses")
+        
+        if let logID = log.id {
+            documeref.document(logID).delete { error in
+                    if let error = error {
+                        print("Error deleting log: \(error)")
+                    }
+                }
+            }
+        }
     
-    // Add update and delete methods as needed
-}
-extension ExpenseLogViewModel {
-    var pieSlices: [PieSliceData] {
-        let grouped = Dictionary(grouping: logs, by: { $0.category })
-        let sortedKeys = grouped.keys.sorted()
-        var slices: [PieSliceData] = []
-        var startAngle: Angle = .degrees(0)
-
-        for category in sortedKeys {
-            let total = grouped[category]?.reduce(0) { $0 + $1.amount } ?? 0
-            let endAngle = startAngle + .degrees(total / logs.reduce(0) { $0 + $1.amount } * 360)
-            slices.append(PieSliceData(startAngle: startAngle, endAngle: endAngle, color: .random, value: total, category: category))
-            startAngle = endAngle
+    func deleteLogs(at offsets: IndexSet) {
+            let logIDsToDelete = offsets.compactMap { logs[$0].id }
+        guard let currentUser = Auth.auth().currentUser else {
+            return
         }
+        
+        let userID = currentUser.uid
+        let userDocumentRef = db.collection("expenseLogs").document(userID)
+        let documeref = userDocumentRef.collection("expenses")
+        
+        logIDsToDelete.forEach { logID in
+            documeref.document(logID).delete { error in
+                    if let error = error {
+                        print("Error deleting log: \(error)")
+                    }
+                }
+            }
+        }
+    
+    func editLog(logId: String, log: ExpenseLog, completion: @escaping (Error?) -> Void) {
+        let logData: [String: Any] = [
+            "name": log.name,
+            "amount": log.amount,
+            "category": log.category.rawValue,
+            "date": log.date
+        ]
+        
+        guard let currentUser = Auth.auth().currentUser else {
+            completion(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Current user is nil"]))
+            return
+        }
+        
+        let userID = currentUser.uid
+        let logDocumentRef = db.collection("expenseLogs").document(userID).collection("expenses").document(logId)
+        
+        logDocumentRef.setData(logData, merge: true) { error in
+            if let error = error {
+                print("Error updating log: \(error.localizedDescription)")
+                completion(error)
+            } else {
+                print("Log updated successfully")
+                completion(nil)
+            }
+        }
+    }
+}
 
-        return slices
+
+extension Timestamp: Comparable {
+    public static func < (lhs: Timestamp, rhs: Timestamp) -> Bool {
+        return lhs.dateValue() < rhs.dateValue()
     }
 }
-extension Color {
-    static var random: Color {
-        return Color(
-            red: .random(in: 0...1),
-            green: .random(in: 0...1),
-            blue: .random(in: 0...1)
-        )
+    
+extension Timestamp {
+        func toDate() -> Date? {
+            return self.dateValue()
+        }
     }
-}
+
+

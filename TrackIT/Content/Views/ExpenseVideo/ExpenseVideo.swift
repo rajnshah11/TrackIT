@@ -4,5 +4,12 @@
 //
 //  Created by Raj Shah on 4/18/24.
 //
+import SwiftUI
+import Firebase
+import CoreData
 
-import Foundation
+struct ExpenseVideo: View {
+    var body: some View {
+        Text("Hi")
+        
+    }}

@@ -9,22 +9,7 @@ import Firebase
 import CoreData
 
 struct LocateUsView: View {
-    
-    @EnvironmentObject var viewModel: ExpenseLogViewModel
-       
-       var body: some View {
-           NavigationView {
-               List(viewModel.logs) { log in
-                   Text(log.name)
-               }
-               .navigationBarTitle("Expense Logs")
-               .navigationBarItems(trailing: NavigationLink(destination: LogsFormView()) {
-                   Image(systemName: "plus")
-               })
-           }
-           .onAppear {
-               self.viewModel.fetchData()
-           }
-       }
-
-}
+    var body: some View {
+        Text("Hi")
+        
+    }}

@@ -39,9 +39,9 @@ struct FinanceNewsView: View {
                             .font(.subheadline)
                     }
                 }
-                .navigationBarTitle("Financial News", displayMode: .automatic)
-                .navigationBarBackButtonHidden(true)
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarTitle("Financial News", displayMode: .automatic)
             .onAppear {
                 viewModel.fetchNews()
             }
