@@ -10,12 +10,15 @@ import Firebase
 
 
 struct Dashboard: View {
+    @EnvironmentObject var viewModel: ExpenseLogViewModel
   
     var body: some View {
-        Text("DashBoard")
-            .font(.subheadline)
-            .foregroundColor(.gray)
-
-
+        PieChartView(slices: viewModel.pieSlices)
+            .padding()
+            .frame(height: 300)
+            .onAppear {
+                viewModel.fetchData()
+            }
     }
 }
+

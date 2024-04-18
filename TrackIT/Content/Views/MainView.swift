@@ -18,14 +18,14 @@ struct MainView: View {
                         }
                         .tag(0)
                         
-                        LogsTabView()
-                            .tabItem {
-                                VStack {
-                                    Text("Expense Logs")
-                                    Image(systemName: "tray")
-                                }
-                        }
-                        .tag(1)
+//                        LogsTabView()
+//                            .tabItem {
+//                                VStack {
+//                                    Text("Expense Logs")
+//                                    Image(systemName: "tray")
+//                                }
+//                        }
+//                        .tag(1)
                 AddExpenseView().environmentObject(viewModel)
                                     .tabItem {
                                         VStack {
@@ -34,7 +34,7 @@ struct MainView: View {
                                         }
                                     }
                                     .tag(2)
-                        NewsView()
+                FinanceNewsView()
                                     .tabItem {
                                         VStack {
                                             Text("Financial News")
@@ -44,7 +44,7 @@ struct MainView: View {
                                     .tag(3)
                         
                     }.edgesIgnoringSafeArea(.top)
-
+                .environmentObject(viewModel)  // Attach the viewModel here
             
             .navigationBarItems(trailing:
                 NavigationLink(destination: ProfileMenuView(isSignedOut: $isSignedOut)) {

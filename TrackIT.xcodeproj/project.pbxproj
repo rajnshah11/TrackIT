@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F78AF292BD0AD6D00241E2C /* PieSliceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78AF282BD0AD6D00241E2C /* PieSliceData.swift */; };
+		3F78AF2B2BD0ADC100241E2C /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78AF2A2BD0ADC100241E2C /* PieChartView.swift */; };
+		3F78AF2F2BD0B26800241E2C /* FinanceNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78AF2E2BD0B26800241E2C /* FinanceNewsViewModel.swift */; };
+		3F78AF312BD0B27A00241E2C /* FinanceNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78AF302BD0B27A00241E2C /* FinanceNews.swift */; };
+		3F78AF332BD0B28B00241E2C /* FinanceNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78AF322BD0B28A00241E2C /* FinanceNewsView.swift */; };
 		8D1BE9762BD04ABE00090246 /* TrackITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9752BD04ABE00090246 /* TrackITApp.swift */; };
 		8D1BE9782BD04ABE00090246 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9772BD04ABE00090246 /* ContentView.swift */; };
 		8D1BE97A2BD04ABE00090246 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BE9792BD04ABE00090246 /* Item.swift */; };
@@ -54,6 +59,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F78AF282BD0AD6D00241E2C /* PieSliceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceData.swift; sourceTree = "<group>"; };
+		3F78AF2A2BD0ADC100241E2C /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		3F78AF2E2BD0B26800241E2C /* FinanceNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceNewsViewModel.swift; sourceTree = "<group>"; };
+		3F78AF302BD0B27A00241E2C /* FinanceNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinanceNews.swift; path = "../../../../Swift/finance-news/finance-news/FinanceNews.swift"; sourceTree = "<group>"; };
+		3F78AF322BD0B28A00241E2C /* FinanceNewsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinanceNewsView.swift; path = "../../../../Swift/finance-news/finance-news/FinanceNewsView.swift"; sourceTree = "<group>"; };
 		8D1BE9722BD04ABE00090246 /* TrackIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1BE9752BD04ABE00090246 /* TrackITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackITApp.swift; sourceTree = "<group>"; };
 		8D1BE9772BD04ABE00090246 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -164,7 +174,9 @@
 		EDEF8AC42BD08169004819C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3F78AF302BD0B27A00241E2C /* FinanceNews.swift */,
 				EDEF8AC52BD0818E004819C1 /* ExpenseLog.swift */,
+				3F78AF282BD0AD6D00241E2C /* PieSliceData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,11 +187,13 @@
 				8D1BE9BF2BD04C6900090246 /* MainView.swift */,
 				8D1BE9C12BD04C6900090246 /* UserProfileView.swift */,
 				8D1BE9C02BD04C6900090246 /* RegisterView.swift */,
+				3F78AF322BD0B28A00241E2C /* FinanceNewsView.swift */,
 				8D1BE9BE2BD04C6900090246 /* LoginView.swift */,
 				EDEF8AC82BD082B7004819C1 /* AddExpenseView.swift */,
 				EDEF8ACA2BD082C7004819C1 /* NewsView.swift */,
 				EDEF8ACC2BD082D5004819C1 /* LocateUsView.swift */,
 				EDEF8AD32BD089F1004819C1 /* LogsFormView.swift */,
+				3F78AF2A2BD0ADC100241E2C /* PieChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				EDEF8AD12BD089AB004819C1 /* ExpenseLogViewModel.swift */,
+				3F78AF2E2BD0B26800241E2C /* FinanceNewsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -300,13 +315,18 @@
 				8D1BE9782BD04ABE00090246 /* ContentView.swift in Sources */,
 				EDEF8ACD2BD082D5004819C1 /* LocateUsView.swift in Sources */,
 				8D1BE9C82BD04D3200090246 /* Dashboard.swift in Sources */,
+				3F78AF312BD0B27A00241E2C /* FinanceNews.swift in Sources */,
 				8D1BE97A2BD04ABE00090246 /* Item.swift in Sources */,
 				8D1BE9C32BD04C6900090246 /* LoginView.swift in Sources */,
+				3F78AF332BD0B28B00241E2C /* FinanceNewsView.swift in Sources */,
 				EDEF8AC62BD0818E004819C1 /* ExpenseLog.swift in Sources */,
+				3F78AF2B2BD0ADC100241E2C /* PieChartView.swift in Sources */,
 				8D1BE9C52BD04C6900090246 /* RegisterView.swift in Sources */,
+				3F78AF2F2BD0B26800241E2C /* FinanceNewsViewModel.swift in Sources */,
 				EDEF8ACB2BD082C7004819C1 /* NewsView.swift in Sources */,
 				EDEF8AD42BD089F1004819C1 /* LogsFormView.swift in Sources */,
 				8D1BE9C42BD04C6900090246 /* MainView.swift in Sources */,
+				3F78AF292BD0AD6D00241E2C /* PieSliceData.swift in Sources */,
 				EDEF8AD22BD089AB004819C1 /* ExpenseLogViewModel.swift in Sources */,
 				8D1BE9762BD04ABE00090246 /* TrackITApp.swift in Sources */,
 			);

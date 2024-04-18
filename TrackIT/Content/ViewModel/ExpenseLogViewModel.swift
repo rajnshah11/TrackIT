@@ -28,3 +28,29 @@ class ExpenseLogViewModel: ObservableObject {
     
     // Add update and delete methods as needed
 }
+extension ExpenseLogViewModel {
+    var pieSlices: [PieSliceData] {
+        let grouped = Dictionary(grouping: logs, by: { $0.category })
+        let sortedKeys = grouped.keys.sorted()
+        var slices: [PieSliceData] = []
+        var startAngle: Angle = .degrees(0)
+
+        for category in sortedKeys {
+            let total = grouped[category]?.reduce(0) { $0 + $1.amount } ?? 0
+            let endAngle = startAngle + .degrees(total / logs.reduce(0) { $0 + $1.amount } * 360)
+            slices.append(PieSliceData(startAngle: startAngle, endAngle: endAngle, color: .random, value: total, category: category))
+            startAngle = endAngle
+        }
+
+        return slices
+    }
+}
+extension Color {
+    static var random: Color {
+        return Color(
+            red: .random(in: 0...1),
+            green: .random(in: 0...1),
+            blue: .random(in: 0...1)
+        )
+    }
+}
