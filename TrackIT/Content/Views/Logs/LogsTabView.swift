@@ -1,15 +1,14 @@
 //
-//  AddExpenseView.swift
+//  LogsTabView.swift
 //  TrackIT
 //
-//  Created by Vrushali Shah on 4/17/24.
+//  Created by Raj Shah on 4/17/24.
 //
 
 import SwiftUI
-import Firebase
-import CoreData
 
-struct AddExpenseView: View {
+
+struct LogsTabView: View {
     
     @EnvironmentObject var viewModel: ExpenseLogViewModel
        
@@ -22,11 +21,11 @@ struct AddExpenseView: View {
                .navigationBarItems(trailing: NavigationLink(destination: LogsFormView()) {
                    Image(systemName: "plus")
                })
+               .navigationBarBackButtonHidden(true)
+
            }
            .onAppear {
                self.viewModel.fetchData()
            }
        }
-
-
 }

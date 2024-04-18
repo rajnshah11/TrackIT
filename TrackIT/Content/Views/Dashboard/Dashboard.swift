@@ -13,12 +13,7 @@ struct Dashboard: View {
     @EnvironmentObject var viewModel: ExpenseLogViewModel
   
     var body: some View {
-        PieChartView(slices: viewModel.pieSlices)
-            .padding()
-            .frame(height: 300)
-            .onAppear {
-                viewModel.fetchData()
-            }
+        Text("hi")
     }
 }
 
