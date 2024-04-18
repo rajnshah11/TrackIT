@@ -4,6 +4,7 @@ import Firebase
 struct MainView: View {
     let firebaseManager = FirebaseManager.shared
     @State private var isSignedOut = false
+    let viewModel = ExpenseLogViewModel()
 
     var body: some View {
         NavigationView {
@@ -25,7 +26,7 @@ struct MainView: View {
                                 }
                         }
                         .tag(1)
-                        AddExpenseView()
+                AddExpenseView().environmentObject(viewModel)
                                     .tabItem {
                                         VStack {
                                             Text("Add Expense")
