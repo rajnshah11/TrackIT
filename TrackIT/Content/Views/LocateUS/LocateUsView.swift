@@ -9,13 +9,7 @@ import Firebase
 import CoreData
 
 struct LocateUsView: View {
-    
     var body: some View {
-        Text("Locate Us View")
-            .font(.subheadline)
-            .foregroundColor(.gray)
-
-
-    }
-
-}
+        Text("Hi")
+        
+    }}

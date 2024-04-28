@@ -5,58 +5,55 @@ struct MainView: View {
     let firebaseManager = FirebaseManager.shared
     @State private var isSignedOut = false
     let viewModel = ExpenseLogViewModel()
-
+    
     var body: some View {
         NavigationView {
             TabView {
-                    Dashboard()
-                            .tabItem {
-                                VStack {
-                                    Text("Dashboard")
-                                    Image(systemName: "chart.pie")
-                                }
+                LogsTabView().environmentObject(viewModel)
+                    .tabItem {
+                        VStack {
+                            Text("Expense Logs")
+                            Image(systemName: "tray")
                         }
-                        .tag(0)
-                        
-//                        LogsTabView()
-//                            .tabItem {
-//                                VStack {
-//                                    Text("Expense Logs")
-//                                    Image(systemName: "tray")
-//                                }
-//                        }
-//                        .tag(1)
-                AddExpenseView().environmentObject(viewModel)
-                                    .tabItem {
-                                        VStack {
-                                            Text("Add Expense")
-                                            Image(systemName: "plus")
-                                        }
-                                    }
-                                    .tag(2)
-                FinanceNewsView()
-                                    .tabItem {
-                                        VStack {
-                                            Text("Financial News")
-                                            Image(systemName: "newspaper")
-                                        }
-                                    }
-                                    .tag(3)
-                        
-                    }.edgesIgnoringSafeArea(.top)
+                    }.tag(0)
+                Dashboard()
+                    .tabItem {
+                        VStack {
+                            Text("Dashboard")
+                            Image(systemName: "chart.pie")
+                        }
+                    }
+                    .tag(1)
+                
+                FinanceNewsView().tabItem {
+                    VStack {
+                        Text("Financial News")
+                        Image(systemName: "newspaper")
+                    }
+                }
+                .tag(2)
+                ExpenseVideo().tabItem {
+                    VStack {
+                        Text("Expense Video")
+                        Image(systemName: "video")
+                    }
+                }
+                .tag(3)
+                
+            }.edgesIgnoringSafeArea(.top)
                 .environmentObject(viewModel)  // Attach the viewModel here
-            
-            .navigationBarItems(trailing:
-                NavigationLink(destination: ProfileMenuView(isSignedOut: $isSignedOut)) {
+                .navigationBarItems(trailing:
+                                        NavigationLink(destination: ProfileMenuView(isSignedOut: $isSignedOut)) {
                     Image(systemName: "person.circle.fill")
                         .resizable()
                         .foregroundColor(.black)
                         .frame(width: 24, height: 24)
                 }
-            )
-            .fullScreenCover(isPresented: $isSignedOut) {
-                LoginView()
-            }
+                )
+                .navigationBarBackButtonHidden(true)
+                .fullScreenCover(isPresented: $isSignedOut) {
+                    LoginView()
+                }
         }
     }
 }
@@ -123,6 +120,28 @@ struct ProfileMenuView: View {
                         .frame(width: 24, height: 24)
                         .clipShape(Circle())
                     Text("Sign Out")
+                }.font(.headline)
+                    .foregroundColor(.blue)
+                    .padding()
+                    .frame(width: 350, height: 50)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.blue, lineWidth: 2)
+                    )
+                    .padding([.leading, .trailing], 10)
+            }
+            .padding()
+            Button(action: {
+            }) {
+                HStack {
+                    Image(systemName: "location")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 24, height: 24)
+                        .clipShape(Circle())
+                    Text("Locate US")
                 }.font(.headline)
                     .foregroundColor(.blue)
                     .padding()

@@ -91,8 +91,7 @@ struct UserProfileView: View {
                 loadUserProfile()
             }
             .background(
-                NavigationLink(destination: MainView().navigationBarBackButtonHidden(true)
-, isActive: $navigateToMain) {
+                NavigationLink(destination: MainView().navigationBarBackButtonHidden(true) , isActive: $navigateToMain) {
                     EmptyView()
                 }
             )
