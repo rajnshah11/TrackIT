@@ -54,7 +54,6 @@ struct WebView: View {
 
     var body: some View {
         WebViewContainer(url: url)
-            .edgesIgnoringSafeArea(.all)
             .navigationBarTitle("", displayMode: .inline)
     }
 }

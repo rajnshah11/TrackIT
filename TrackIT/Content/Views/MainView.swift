@@ -6,6 +6,7 @@ import Firebase
 struct MainView: View {
     let firebaseManager = FirebaseManager.shared
     let viewModel = ExpenseLogViewModel()
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         NavigationView {
@@ -42,14 +43,15 @@ struct MainView: View {
                 .tag(3)
                 
             }.environmentObject(viewModel)
-            .navigationBarItems(trailing: NavigationLink(destination: ProfileMenuView()) {
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .foregroundColor(.black)
-                    .frame(width: 24, height: 24)
-            }
-            )
-            .edgesIgnoringSafeArea(.bottom)
-        }
+                .navigationBarItems(trailing:
+                                NavigationLink(destination: ProfileMenuView()) {
+                                    Image(systemName: "person.circle.fill")
+                                        .resizable()
+                                        .foregroundColor(colorScheme == .dark ? .white : .black) // Change color based on system-wide appearance
+                                        .frame(width: 24, height: 24)
+                                }
+                            )
+                            .edgesIgnoringSafeArea(.bottom)
+                        }
     }
 }

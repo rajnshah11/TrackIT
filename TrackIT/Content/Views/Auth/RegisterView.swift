@@ -118,7 +118,9 @@ struct RegisterView: View {
             }
         }
         func isPasswordValid(_ password: String) -> Bool {
-                let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{6,}$")
+            print("password", password);
+                let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$")
+            print(passwordTest.evaluate(with: password))
                 return passwordTest.evaluate(with: password)
             }
 

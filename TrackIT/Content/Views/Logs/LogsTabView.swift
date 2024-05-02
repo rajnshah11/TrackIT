@@ -11,7 +11,8 @@ struct LogsTabView: View {
     @State private var selectedCategories: Set<Category> = Set()
     @State private var sortType: SortType = .date
     @State private var sortOrder: SortOrder = .ascending
-
+    @State private var showLogsForm = false
+    @State private var isShowingLogsForm = false
     // DateFormatter for formatting the date
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -29,6 +30,29 @@ struct LogsTabView: View {
                 Divider()
                     SelectSortOrderView(sortType: $sortType, sortOrder: $sortOrder)
                 Divider()
+                HStack {
+                               Button(action: {
+                                   // Navigate to the add expense view
+                                   self.isShowingLogsForm = true
+                               }) {
+                                   Image(systemName: "plus")
+                                       .foregroundColor(.blue)
+                                   Text("Add expense")
+                                       .font(.headline)
+                                       .foregroundColor(.blue)
+                               }
+                               Spacer()
+                           }
+                           .padding(.vertical, 8)
+                           .sheet(isPresented: $isShowingLogsForm) {
+                               NavigationView {
+                                   LogsFormView(log: nil)
+                                       .padding(.top, 20)
+                                       .navigationBarItems(leading: Button("Back") {
+                                           isShowingLogsForm = false
+                                       })
+                               }
+                           }
                 List {
                     if viewModel.logs.isEmpty {
                         VStack{
@@ -62,11 +86,8 @@ struct LogsTabView: View {
                     }
                 }
             }
-            .navigationBarTitle("Expense Logs", displayMode: .automatic)
-            .navigationBarItems(trailing: NavigationLink(destination: LogsFormView(log: nil)) {
-                Image(systemName: "plus")
-            })
-            .navigationBarBackButtonHidden(true)
+            
+            
         }
         .onAppear {
             self.viewModel.fetchData()

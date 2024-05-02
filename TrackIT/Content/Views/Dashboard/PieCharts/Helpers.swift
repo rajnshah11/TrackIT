@@ -57,62 +57,7 @@ public struct GradientColors {
 }
 
 public struct Styles {
-    public static let lineChartStyleOne = ChartStyle(
-        backgroundColor: Color.white,
-        accentColor: Colors.OrangeStart,
-        secondGradientColor: Colors.OrangeEnd,
-        textColor: Color.black,
-        legendTextColor: Color.gray,
-        dropShadowColor: Color.gray)
-    
-    public static let barChartStyleOrangeLight = ChartStyle(
-        backgroundColor: Color.white,
-        accentColor: Colors.OrangeStart,
-        secondGradientColor: Colors.OrangeEnd,
-        textColor: Color.black,
-        legendTextColor: Color.gray,
-        dropShadowColor: Color.gray)
-    
-    public static let barChartStyleOrangeDark = ChartStyle(
-        backgroundColor: Color.black,
-        accentColor: Colors.OrangeStart,
-        secondGradientColor: Colors.OrangeEnd,
-        textColor: Color.white,
-        legendTextColor: Color.gray,
-        dropShadowColor: Color.gray)
-    
-    public static let barChartStyleNeonBlueLight = ChartStyle(
-        backgroundColor: Color.white,
-        accentColor: Colors.GradientNeonBlue,
-        secondGradientColor: Colors.GradientPurple,
-        textColor: Color.black,
-        legendTextColor: Color.gray,
-        dropShadowColor: Color.gray)
-    
-    public static let barChartStyleNeonBlueDark = ChartStyle(
-        backgroundColor: Color.black,
-        accentColor: Colors.GradientNeonBlue,
-        secondGradientColor: Colors.GradientPurple,
-        textColor: Color.white,
-        legendTextColor: Color.gray,
-        dropShadowColor: Color.gray)
-    
-    public static let barChartMidnightGreenDark = ChartStyle(
-        backgroundColor: Color(hexString: "#36534D"), //3B5147, 313D34
-        accentColor: Color(hexString: "#FFD603"),
-        secondGradientColor: Color(hexString: "#FFCA04"),
-        textColor: Color.white,
-        legendTextColor: Color(hexString: "#D2E5E1"),
-        dropShadowColor: Color.gray)
-    
-    public static let barChartMidnightGreenLight = ChartStyle(
-        backgroundColor: Color.white,
-        accentColor: Color(hexString: "#84A094"), //84A094 , 698378
-        secondGradientColor: Color(hexString: "#50675D"),
-        textColor: Color.black,
-        legendTextColor:Color.gray,
-        dropShadowColor: Color.gray)
-    
+   
     public static let pieChartStyleOne = ChartStyle(
         backgroundColor: Color.white,
         accentColor: Colors.OrangeEnd,
@@ -121,27 +66,17 @@ public struct Styles {
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
     
-    public static let lineViewDarkMode = ChartStyle(
-        backgroundColor: Color.black,
-        accentColor: Colors.OrangeStart,
-        secondGradientColor: Colors.OrangeEnd,
-        textColor: Color.white,
-        legendTextColor: Color.white,
-        dropShadowColor: Color.gray)
+   
 }
 
 public struct ChartForm {
-    #if os(watchOS)
-    public static let small = CGSize(width:120, height:90)
-    public static let medium = CGSize(width:120, height:160)
-    public static let large = CGSize(width:180, height:90)
-    public static let detail = CGSize(width:180, height:160)
-    #else
+    
+    
     public static let small = CGSize(width:180, height:120)
     public static let medium = CGSize(width:180, height:240)
     public static let large = CGSize(width:360, height:120)
     public static let detail = CGSize(width:180, height:120)
-    #endif
+    
     
     
 }
@@ -213,34 +148,9 @@ public class ChartData: ObservableObject, Identifiable {
     }
 }
 
-public class MultiLineChartData: ChartData {
-    var gradient: GradientColor
-    
-    public init<N: BinaryFloatingPoint>(points:[N], gradient: GradientColor) {
-        self.gradient = gradient
-        super.init(points: points)
-    }
-    
-    public init<N: BinaryFloatingPoint>(points:[N], color: Color) {
-        self.gradient = GradientColor(start: color, end: color)
-        super.init(points: points)
-    }
-    
-    public func getGradient() -> GradientColor {
-        return self.gradient
-    }
-}
 
-public class TestData{
-    static public var data:ChartData = ChartData(points: [37,72,51,22,39,47,66,85,50])
-    static public var values:ChartData = ChartData(values: [("2017 Q3",220),
-                                                            ("2017 Q4",1550),
-                                                            ("2018 Q1",8180),
-                                                            ("2018 Q2",18440),
-                                                            ("2018 Q3",55840),
-                                                            ("2018 Q4",63150), ("2019 Q1",50900), ("2019 Q2",77550), ("2019 Q3",79600), ("2019 Q4",92550)])
-    
-}
+
+
 
 extension Color {
     init(hexString: String) {
@@ -263,16 +173,10 @@ extension Color {
 }
 
 class HapticFeedback {
-    #if os(watchOS)
-    //watchOS implementation
-    static func playSelection() -> Void {
-        WKInterfaceDevice.current().play(.click)
-    }
-    #else
-    //iOS implementation
+    
     let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
     static func playSelection() -> Void {
         UISelectionFeedbackGenerator().selectionChanged()
     }
-    #endif
+   
 }

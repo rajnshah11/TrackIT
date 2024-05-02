@@ -66,11 +66,38 @@
 		8D949ECB2BD0ED1100FEE5D9 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D949ECA2BD0ED1100FEE5D9 /* PieChartView.swift */; };
 		8D98E0EF2BDF050800A2BFAC /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D98E0EE2BDF050800A2BFAC /* FirebaseManager.swift */; };
 		8D98E0F12BDF05ED00A2BFAC /* ProfileMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D98E0F02BDF05ED00A2BFAC /* ProfileMenuView.swift */; };
+		EDB905AA2BE2FA4200BCE4D7 /* youtube-ios-player-helper-master in Resources */ = {isa = PBXBuildFile; fileRef = EDB905A92BE2FA4200BCE4D7 /* youtube-ios-player-helper-master */; };
+		EDB905B22BE2FCE300BCE4D7 /* YouTubeiOSPlayerHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB905B02BE2FACB00BCE4D7 /* YouTubeiOSPlayerHelper.framework */; };
+		EDB905B32BE2FCE300BCE4D7 /* YouTubeiOSPlayerHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDB905B02BE2FACB00BCE4D7 /* YouTubeiOSPlayerHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDEF8AC62BD0818E004819C1 /* ExpenseLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8AC52BD0818E004819C1 /* ExpenseLog.swift */; };
 		EDEF8ACD2BD082D5004819C1 /* LocateUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8ACC2BD082D5004819C1 /* LocateUsView.swift */; };
 		EDEF8AD22BD089AB004819C1 /* ExpenseLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8AD12BD089AB004819C1 /* ExpenseLogViewModel.swift */; };
 		EDEF8AD42BD089F1004819C1 /* LogsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF8AD32BD089F1004819C1 /* LogsFormView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDB905AF2BE2FACB00BCE4D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDB905AB2BE2FACB00BCE4D7 /* youtube-ios-player-helper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3C76A1A1B975AA700F375B4;
+			remoteInfo = YouTubeiOSPlayerHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EDB905B42BE2FCE400BCE4D7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EDB905B32BE2FCE300BCE4D7 /* YouTubeiOSPlayerHelper.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3F78AF282BD0AD6D00241E2C /* PieSliceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceData.swift; sourceTree = "<group>"; };
@@ -106,6 +133,8 @@
 		8D98E0EA2BDF00B900A2BFAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D98E0EE2BDF050800A2BFAC /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		8D98E0F02BDF05ED00A2BFAC /* ProfileMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuView.swift; sourceTree = "<group>"; };
+		EDB905A92BE2FA4200BCE4D7 /* youtube-ios-player-helper-master */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "youtube-ios-player-helper-master"; path = "../../../../../../Downloads/youtube-ios-player-helper-master"; sourceTree = "<group>"; };
+		EDB905AB2BE2FACB00BCE4D7 /* youtube-ios-player-helper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "youtube-ios-player-helper.xcodeproj"; path = "../../../../../../Downloads/youtube-ios-player-helper-master/youtube-ios-player-helper.xcodeproj"; sourceTree = "<group>"; };
 		EDEF8AC52BD0818E004819C1 /* ExpenseLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseLog.swift; sourceTree = "<group>"; };
 		EDEF8ACC2BD082D5004819C1 /* LocateUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUsView.swift; sourceTree = "<group>"; };
 		EDEF8AD12BD089AB004819C1 /* ExpenseLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseLogViewModel.swift; sourceTree = "<group>"; };
@@ -135,6 +164,7 @@
 				8D1BE99B2BD04BC500090246 /* FirebaseDatabaseSwift in Frameworks */,
 				8D1BE9A52BD04BC500090246 /* FirebaseFunctions in Frameworks */,
 				8D1BE9BB2BD04BC500090246 /* FirebaseStorageCombine-Community in Frameworks */,
+				EDB905B22BE2FCE300BCE4D7 /* YouTubeiOSPlayerHelper.framework in Frameworks */,
 				8D1BE9B52BD04BC500090246 /* FirebaseRemoteConfig in Frameworks */,
 				8D1BE9912BD04BC500090246 /* FirebaseAppDistribution-Beta in Frameworks */,
 				8D1BE9952BD04BC500090246 /* FirebaseAuthCombine-Community in Frameworks */,
@@ -156,6 +186,7 @@
 			children = (
 				8D1BE9742BD04ABE00090246 /* TrackIT */,
 				8D1BE9732BD04ABE00090246 /* Products */,
+				EDB905B12BE2FCE300BCE4D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -279,6 +310,21 @@
 			path = PieCharts;
 			sourceTree = "<group>";
 		};
+		EDB905AC2BE2FACB00BCE4D7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDB905B02BE2FACB00BCE4D7 /* YouTubeiOSPlayerHelper.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDB905B12BE2FCE300BCE4D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EDEF8AC42BD08169004819C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +347,8 @@
 				8D949EB52BD0D19800FEE5D9 /* Dashboard */,
 				8D949EB42BD0D17700FEE5D9 /* Auth */,
 				8D1BE9BF2BD04C6900090246 /* MainView.swift */,
+				EDB905AB2BE2FACB00BCE4D7 /* youtube-ios-player-helper.xcodeproj */,
+				EDB905A92BE2FA4200BCE4D7 /* youtube-ios-player-helper-master */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +372,7 @@
 				8D1BE96E2BD04ABE00090246 /* Sources */,
 				8D1BE96F2BD04ABE00090246 /* Frameworks */,
 				8D1BE9702BD04ABE00090246 /* Resources */,
+				EDB905B42BE2FCE400BCE4D7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -394,12 +443,28 @@
 			);
 			productRefGroup = 8D1BE9732BD04ABE00090246 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EDB905AC2BE2FACB00BCE4D7 /* Products */;
+					ProjectRef = EDB905AB2BE2FACB00BCE4D7 /* youtube-ios-player-helper.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D1BE9712BD04ABE00090246 /* TrackIT */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EDB905B02BE2FACB00BCE4D7 /* YouTubeiOSPlayerHelper.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = YouTubeiOSPlayerHelper.framework;
+			remoteRef = EDB905AF2BE2FACB00BCE4D7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D1BE9702BD04ABE00090246 /* Resources */ = {
@@ -408,6 +473,7 @@
 			files = (
 				8D1BE97F2BD04AC000090246 /* Preview Assets.xcassets in Resources */,
 				8D1BE97C2BD04AC000090246 /* Assets.xcassets in Resources */,
+				EDB905AA2BE2FA4200BCE4D7 /* youtube-ios-player-helper-master in Resources */,
 				8D1BE9BD2BD04C0000090246 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,10 +650,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TrackIT/Preview Content\"";
-				DEVELOPMENT_TEAM = UF5Y82QBX9;
+				DEVELOPMENT_TEAM = 84K9F47TGV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = /Users/rajshah/Desktop/TrackIT/TrackIT/Info.plist;
+				INFOPLIST_FILE = /Users/vrushalishah/Documents/IOSApp/TrackIT/TrackIT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -614,10 +680,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TrackIT/Preview Content\"";
-				DEVELOPMENT_TEAM = UF5Y82QBX9;
+				DEVELOPMENT_TEAM = 84K9F47TGV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = /Users/rajshah/Desktop/TrackIT/TrackIT/Info.plist;
+				INFOPLIST_FILE = /Users/vrushalishah/Documents/IOSApp/TrackIT/TrackIT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

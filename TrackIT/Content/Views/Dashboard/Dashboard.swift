@@ -14,41 +14,42 @@ struct Dashboard: View {
     @State private var totalExpenses: Double = 0
     @State private var categoriesSum: [CategorySum] = []
     var body: some View {
-        VStack(spacing: 0) {
-            VStack(spacing: 4) {
-                Text("Total expenses")
-                    .font(.headline)
-                Text(totalExpenses.formattedCurrencyText)
-                    .font(.largeTitle)
-            }
-            
-            if totalExpenses > 0 {
-                PieChartView(
-                    data: categoriesSum.map { ($0.sum, $0.category.color) },
-                    style: Styles.pieChartStyleOne,
-                    form: CGSize(width: 300, height: 240),
-                    dropShadow: false
-                )
-                Divider()
-                List {
-                    Text("Breakdown").font(.headline)
-                    ForEach(categoriesSum) { categorySum in
-                        CategoryRowView(category: categorySum.category, sum: categorySum.sum)
-                    }
+        ScrollView{
+            VStack(spacing: 0) {
+                VStack(spacing: 4) {
+                    Text("Total expenses")
+                        .font(.headline)
+                    Text(totalExpenses.formattedCurrencyText)
+                        .font(.largeTitle)
                 }
-            } else {
-                Text("No expenses data\nPlease add your expenses from the logs tab")
-                    .multilineTextAlignment(.center)
-                    .font(.headline)
-                    .padding(.horizontal)
+                
+                if totalExpenses > 0 {
+                    PieChartView(
+                        data: categoriesSum.map { ($0.sum, $0.category.color) },
+                        style: Styles.pieChartStyleOne,
+                        form: CGSize(width: 300, height: 240),
+                        dropShadow: false
+                    )
+                    Divider()
+                    List {
+                        Text("Breakdown").font(.headline)
+                        ForEach(categoriesSum) { categorySum in
+                            CategoryRowView(category: categorySum.category, sum: categorySum.sum)
+                        }
+                    }
+                } else {
+                    Text("No expenses data\nPlease add your expenses from the logs tab")
+                        .multilineTextAlignment(.center)
+                        .font(.headline)
+                        .padding(.horizontal)
+                }
             }
-        }
-        .padding(.top)
-        .onAppear{
-            fetchData()
+            .padding(.top)
+            .onAppear{
+                fetchData()
+            }
         }
     }
-    
    
     func fetchData() {
         guard !viewModel.logs.isEmpty else { return }
