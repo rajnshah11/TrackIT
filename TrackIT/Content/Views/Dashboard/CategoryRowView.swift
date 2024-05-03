@@ -22,7 +22,9 @@ struct CategoryRowView: View {
             CategoryImageView(category: category)
             Text(category.rawValue.capitalized)
             Spacer()
-            Text(sum.formattedCurrencyText).font(.headline)
+            Text(sum.formattedCurrencyText)
+                .font(.headline)
+                .padding(.trailing)
         }
     }
 }

@@ -85,8 +85,8 @@ struct UserProfileView: View {
                     }
                     .padding(.horizontal)
                 }
-                .padding()
-            
+                .padding(.top, 100)
+
 
             .sheet(isPresented: $isImagePickerPresented) {
                 ImagePicker(image: $profileImage)

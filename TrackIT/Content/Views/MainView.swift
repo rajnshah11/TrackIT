@@ -38,7 +38,8 @@ struct MainView: View {
                 }
                 .tag(3)
                 
-            }.environmentObject(viewModel)
+            }
+            .environmentObject(viewModel)
             .navigationBarItems(trailing: NavigationLink(destination: ProfileMenuView()) {
                 Image(systemName: "person.circle.fill")
                     .resizable()

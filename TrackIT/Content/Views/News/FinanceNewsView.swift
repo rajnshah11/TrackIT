@@ -10,16 +10,17 @@ import WebKit
 
 struct FinanceNewsView: View {
     @ObservedObject var viewModel = FinanceNewsViewModel()
-    @Environment(\.horizontalSizeClass) var sizeClass  // Environment variable to check size class
-
+    @Environment(\.horizontalSizeClass) var sizeClass 
     var body: some View {
         Group {
-            if sizeClass == .regular {  // Typically true for iPad
-                // iPad view with NavigationSplitView
+            if sizeClass == .regular {
                 NavigationSplitView {
                     List(viewModel.news) { newsItem in
-                        NavigationLink(destination: DetailView(newsItem: newsItem)) {
-                            FinanceNewsRow(newsItem: newsItem)
+                        FinanceNewsRow(newsItem: newsItem)
+                        NavigationLink(destination: WebView(url: newsItem.link)) {
+                            Text("Read more...")
+                                .foregroundColor(.blue)
+                                .font(.subheadline)
                         }
                     }
                     .navigationBarTitle("Financial News", displayMode: .automatic)
@@ -30,7 +31,6 @@ struct FinanceNewsView: View {
                     Text("Select a news item")
                 }
             } else {
-                // iPhone view with NavigationView
                 NavigationView {
                     List(viewModel.news) { newsItem in
                         FinanceNewsRow(newsItem: newsItem)

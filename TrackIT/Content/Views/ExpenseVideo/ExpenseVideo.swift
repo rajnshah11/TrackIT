@@ -1,25 +1,52 @@
 import SwiftUI
-import Firebase
-import CoreData
 import WebKit
 
 struct ExpenseVideo: View {
     let videoIDs = ["IfpAjsytwy0", "VaiqGsot5ws", "bMXTGGxrQ3A", "J6oHchaCxvM", "4j2emMn7UaI"] // Array of YouTube video IDs
     
+    @Environment(\.horizontalSizeClass) var hSizeClass
+    
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(videoIDs, id: \.self) { videoID in
-                        YouTubePlayer(videoID: videoID)
-                            .frame(height: 200)
-                            .padding(10)
-                    }
+        if hSizeClass == .regular {
+            iPadOrMacContentView
+        } else {
+            NavigationView {
+                iphoneView
+            }
+        }
+    }
+    
+    private var iPadOrMacContentView : some View {
+        ScrollView {
+            HStack(spacing: 4) {
+                Text("Expense Video")
+                    .font(.headline)
+            }
+
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(videoIDs, id: \.self) { videoID in
+                    YouTubePlayer(videoID: videoID)
+                        .frame(height: 200)
+                        .padding(10)
                 }
             }
-            .navigationBarTitle("Expense Video", displayMode: .automatic)
-            .navigationBarBackButtonHidden(true)
         }
+        .navigationBarTitle("", displayMode: .automatic)
+        .navigationBarBackButtonHidden(true)
+    }
+    
+    private var iphoneView : some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(videoIDs, id: \.self) { videoID in
+                    YouTubePlayer(videoID: videoID)
+                        .frame(height: 200)
+                        .padding(10)
+                }
+            }
+        }
+        .navigationBarTitle("Expense Video", displayMode: .automatic)
+        .navigationBarBackButtonHidden(true)
     }
     
     struct YouTubePlayer: UIViewRepresentable {

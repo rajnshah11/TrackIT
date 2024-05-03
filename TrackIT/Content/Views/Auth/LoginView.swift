@@ -69,7 +69,7 @@ struct LoginView: View {
                     }
                     .padding()
                 }
-                .padding()
+            .padding(.top, 150)
             
             .navigationBarHidden(true)
             .onAppear {

@@ -12,83 +12,78 @@ struct RegisterView: View {
 
     var body: some View {
         ScrollView{
-                VStack {
-                    ZStack {
-                        Image("login")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 120, height: 120)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                            .shadow(radius: 6)
-                    }
-                    .padding(.bottom, 20)
+            VStack {
+                Spacer()
+                ZStack {
+                    Image("login")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 120, height: 120)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                        .shadow(radius: 6)
+                }
+                .padding(.bottom, 20)
+                
+                VStack(spacing: 10) {
+                    TextField("Email", text: $email)
+                        .padding()
+                        .frame(width: 350, height: 50)
+                        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.gray.opacity(0.1)))
+                    SecureField("Password", text: $password)
+                        .padding()
+                        .frame(width: 350, height: 50)
+                        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.gray.opacity(0.1)))
+                    SecureField("Confirm Password", text: $confirmPassword)
+                        .padding()
+                        .frame(width: 350, height: 50)
+                        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.gray.opacity(0.1)))
                     
-                    VStack(spacing: 10) {
-                        TextField("Email", text: $email)
-                            .padding()
-                            .frame(width: 350, height: 50)
-                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.gray.opacity(0.1)))
-                        SecureField("Password", text: $password)
-                            .padding()
-                            .frame(width: 350, height: 50)
-                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.gray.opacity(0.1)))
-                        SecureField("Confirm Password", text: $confirmPassword)
-                            .padding()
-                            .frame(width: 350, height: 50)
-                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.gray.opacity(0.1)))
-                       
-                    }
-                    if let error = error {
-                        Text(error)
-                            .foregroundColor(.red)
-                            .padding()
-                    }
-                    Button(action: {
-                        register()
-                    }) {
-                        Text("Register")
-                            .font(.headline)
-                            .foregroundColor(.blue)
-                            .padding()
-                            .frame(width: 350, height: 50)
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.blue, lineWidth: 2)
-                            )
-                            .padding([.leading, .trailing], 10)
-                    }
+                }
+                if let error = error {
+                    Text(error)
+                        .foregroundColor(.red)
+                        .padding()
+                }
+                Button(action: {
+                    register()
+                }) {
+                    Text("Register")
+                        .font(.headline)
+                        .foregroundColor(.blue)
+                        .padding()
+                        .frame(width: 350, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.blue, lineWidth: 2)
+                        )
+                        .padding([.leading, .trailing], 10)
+                }
+                
+                HStack {
+                    Text("Already have an account? ")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
                     
-                    HStack {
-                        Text("Already have an account? ")
+                    NavigationLink(destination: LoginView()) {
+                        Text("Log In")
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        
-                        NavigationLink(destination: LoginView()) {
-                            Text("Log In")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                        }
                     }
-                    .padding()
                 }
                 .padding()
-            
-            .navigationBarHidden(true)
-            .onAppear {
-                self.isRegistrationSuccessful = false
             }
-            
-            .background(
-                NavigationLink(destination: UserProfileView().navigationBarBackButtonHidden(true)
-                               , isActive: $isRegistrationSuccessful) {
-                                   EmptyView()
-                               }
-            ).navigationBarBackButtonHidden(true)
-            
+        .onAppear {
+            self.isRegistrationSuccessful = false
         }
+        NavigationLink(destination: UserProfileView().navigationBarBackButtonHidden(true)
+                       ,isActive: $isRegistrationSuccessful) {
+            EmptyView()
+        }
+        }
+        .padding(.top, 150)
     }
     
     func register() {

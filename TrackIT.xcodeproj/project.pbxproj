@@ -249,11 +249,13 @@
 		8D949EB62BD0D1B000FEE5D9 /* Logs */ = {
 			isa = PBXGroup;
 			children = (
-				8D9BD1E52BE2F90200702207 /* List Logs */,
-				8D9BD1E42BE2F8EF00702207 /* Add Edit Logs */,
-				8D9BD1DE2BE2F6D700702207 /* Sorting */,
-				8D9BD1DD2BE2F69700702207 /* FilterByCategoryView */,
-				8D9BD1DC2BE2F68500702207 /* SearchView */,
+				8D90FEB62BD0BC0200DA0A6E /* LogsTabView.swift */,
+				8D9BD1DA2BE2F5E600702207 /* FilterButtonView.swift */,
+				8D949EBC2BD0DB6D00FEE5D9 /* CategoryImageView.swift */,
+				8D5AD7892BD189B300DA0431 /* FilterCategoriesView.swift */,
+				8D5AD78B2BD18BDF00DA0431 /* SelectSortOrderView.swift */,
+				EDEF8AD32BD089F1004819C1 /* LogsFormView.swift */,
+				8D5AD7852BD186A400DA0431 /* SearchBar.swift */,
 			);
 			path = Logs;
 			sourceTree = "<group>";
@@ -283,48 +285,6 @@
 				8D949EC12BD0E94E00FEE5D9 /* Utils.swift */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		8D9BD1DC2BE2F68500702207 /* SearchView */ = {
-			isa = PBXGroup;
-			children = (
-				8D5AD7852BD186A400DA0431 /* SearchBar.swift */,
-			);
-			path = SearchView;
-			sourceTree = "<group>";
-		};
-		8D9BD1DD2BE2F69700702207 /* FilterByCategoryView */ = {
-			isa = PBXGroup;
-			children = (
-				8D9BD1DA2BE2F5E600702207 /* FilterButtonView.swift */,
-				8D5AD7892BD189B300DA0431 /* FilterCategoriesView.swift */,
-				8D949EBC2BD0DB6D00FEE5D9 /* CategoryImageView.swift */,
-			);
-			path = FilterByCategoryView;
-			sourceTree = "<group>";
-		};
-		8D9BD1DE2BE2F6D700702207 /* Sorting */ = {
-			isa = PBXGroup;
-			children = (
-				8D5AD78B2BD18BDF00DA0431 /* SelectSortOrderView.swift */,
-			);
-			path = Sorting;
-			sourceTree = "<group>";
-		};
-		8D9BD1E42BE2F8EF00702207 /* Add Edit Logs */ = {
-			isa = PBXGroup;
-			children = (
-				EDEF8AD32BD089F1004819C1 /* LogsFormView.swift */,
-			);
-			path = "Add Edit Logs";
-			sourceTree = "<group>";
-		};
-		8D9BD1E52BE2F90200702207 /* List Logs */ = {
-			isa = PBXGroup;
-			children = (
-				8D90FEB62BD0BC0200DA0A6E /* LogsTabView.swift */,
-			);
-			path = "List Logs";
 			sourceTree = "<group>";
 		};
 		EDEF8AC42BD08169004819C1 /* Model */ = {

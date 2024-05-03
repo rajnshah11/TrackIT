@@ -27,10 +27,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             manager.startUpdatingLocation()
             findNearbyPlaces()
         case .denied, .restricted:
-            // Inform the user and provide guidance
             showLocationAccessDeniedAlert()
         case .notDetermined:
-            // Request authorization again
             manager.requestWhenInUseAuthorization()
         default:
             break

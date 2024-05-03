@@ -21,18 +21,23 @@ struct Dashboard: View {
             fetchData()
         }
         .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
-            self.orientation = UIDevice.current.orientation
-        }
+                    // Avoid navigation changes on orientation change
+                    if let currentView = UIApplication.shared.windows.first?.rootViewController {
+                        currentView.dismiss(animated: false, completion: nil)
+                    }
+                    self.orientation = UIDevice.current.orientation
+                }
+
 
     }
     
     private var landscapeView: some View {
         VStack(spacing: 0) {
             HStack(spacing: 4) {
-                Text("Total expenses")
+                Text("Total expenses   ")
                     .font(.headline)
                 Text(totalExpenses.formattedCurrencyText)
-                    .font(.largeTitle)
+                    .font(.headline)
             }
             HStack(spacing: 20) {
                 if totalExpenses > 0 {

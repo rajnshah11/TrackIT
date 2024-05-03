@@ -1,5 +1,4 @@
 import SwiftUI
-import FirebaseFirestore
 
 struct LogsTabView: View {
     
@@ -11,7 +10,8 @@ struct LogsTabView: View {
     
     @State private var showingEditSheet = false
     @State private var selectedLog: ExpenseLog? = nil
-    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
@@ -21,37 +21,62 @@ struct LogsTabView: View {
     
     var body: some View {
         Group {
-            if orientation.isLandscape {
+            if orientation.isLandscape && horizontalSizeClass == .regular {
+                ipadlandscapeView
+            } else if orientation.isLandscape && horizontalSizeClass != .regular {
                 landscapeView
-            } else {
+            }
+            else {
                 portraitView
             }
         }
         .padding(.top)
         .onAppear {
-            fetchData()
+            self.viewModel.fetchData()
+        }
+        .sheet(item: $selectedLog) { log in
+            Spacer()
+            LogsFormView(log: log).environmentObject(viewModel)
+
         }
         .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
             self.orientation = UIDevice.current.orientation
         }
     }
     
+    @ViewBuilder
+    private var ipadlandscapeView: some View {
+            content
+    }
+    
+    @ViewBuilder
     private var landscapeView: some View {
         ScrollView {
-            NavigationView {
+            NavigationView{
                 content
             }
         }
     }
     
+    
+    @ViewBuilder
     private var portraitView: some View {
-        NavigationView {
             content
-        }
     }
+    
     
     private var content: some View {
         VStack(spacing: 0) {
+            HStack(spacing: 4) {
+                Text("Expense Logs")
+                    .font(.headline)
+            }
+            HStack{
+                Spacer()
+                NavigationLink(destination: LogsFormView(log: nil).environmentObject(viewModel)) {
+                    Image(systemName: "plus")
+                }.padding(.trailing, 20)
+            }
             SearchBar(viewModel: searchBarViewModel, placeholder: "Search...")
             FilterCategoriesView(viewModel: filterCategoriesViewModel)
             Divider()
@@ -85,18 +110,6 @@ struct LogsTabView: View {
                     .onDelete(perform: viewModel.deleteLogs)
                 }
             }
-        }
-        .navigationBarTitle("Expense Logs", displayMode: .automatic)
-        .navigationBarItems(trailing: NavigationLink(destination: LogsFormView(log: nil)) {
-            Image(systemName: "plus")
-        })
-        .navigationBarBackButtonHidden(true)
-        .onAppear {
-            self.viewModel.fetchData()
-        }
-        .sheet(item: $selectedLog) { log in
-            Spacer()
-            LogsFormView(log: log)
         }
     }
     
