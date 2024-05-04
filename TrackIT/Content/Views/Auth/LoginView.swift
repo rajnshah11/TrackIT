@@ -61,7 +61,7 @@ struct LoginView: View {
                         Text("New User?")
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        NavigationLink(destination: RegisterView()) {
+                        NavigationLink(destination: RegisterView().navigationBarBackButtonHidden(true)) {
                             Text("Register")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)

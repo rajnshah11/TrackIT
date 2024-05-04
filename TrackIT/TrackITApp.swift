@@ -12,7 +12,7 @@ import SwiftData
 struct TrackITApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreen()
         }
     }
 }

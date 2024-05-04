@@ -1,15 +1,16 @@
 // ContentView.swift
+
 import SwiftUI
 import Firebase
 import FirebaseStorage
 import FirebaseFirestore
 
 struct ContentView: View {
-    
     var body: some View {
-            NavigationView{
-                ScrollView{
+        NavigationView {
+            ScrollView {
                 VStack {
+                    Spacer()
                     Image("mainlogo")
                         .resizable()
                         .scaledToFit()
@@ -28,32 +29,20 @@ struct ContentView: View {
                                     .stroke(Color.blue, lineWidth: 2)
                             )
                             .padding([.leading, .trailing], 10)
-                    }
+                    }.padding(.bottom)
                     
                     HStack {
                         Text("Already have an account? ")
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        
                         NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true)) {
                             Text("Log In")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                         }
                     }
-                    
-                }
-            }.padding(.top, 100)
-
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-
-
-    }
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+                }.padding(.top, 100)
+            }.edgesIgnoringSafeArea(.all)
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
